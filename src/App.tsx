@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Suspense } from "react";
+import "./App.css";
+import SinglePageContainer from "./Components/Container";
+import Navbar from "./Components/Navbar";
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
+import Loader from "./Components/Loader";
+import ThemeContextProvider from "./Context/ThemeContext";
+import LanguageContextProvider from "./Context/LanguageContext";
+import HomePage from "./Components/Pages/HomPage";
 
-function App() {
+const App = (): JSX.Element => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Suspense
+        fallback={
+          <Loader />
+        }
+      >
+        <LanguageContextProvider>
+          <ThemeContextProvider>
+            <Routes>
+              <Route path="/" element={<Navigate replace to={'/Inicio'} />} />
+              <Route path="*" element={<>Not Found</>} />
+
+              <Route path="/*" element={
+                <SinglePageContainer>
+                  <Navbar />
+                  <Outlet />
+                </SinglePageContainer>
+              }>
+                <Route index path="Inicio" element={<HomePage />} />
+                <Route path="SobreMi" element={<>About Me</>} />
+                <Route path="Resumen" element={<>Resume</>} />
+                <Route path="Portafolio" element={<>Portfolio</>} />
+                <Route path="Contacto" element={<>Contact</>} />
+              </Route>
+
+            </Routes>
+          </ThemeContextProvider>
+        </LanguageContextProvider>
+      </Suspense>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
