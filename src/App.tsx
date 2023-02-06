@@ -1,12 +1,12 @@
 import { Suspense } from "react";
 import "./App.css";
 import SinglePageContainer from "./Components/Container";
-import Navbar from "./Components/Navbar";
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Loader from "./Components/Loader";
 import ThemeContextProvider from "./Context/ThemeContext";
 import LanguageContextProvider from "./Context/LanguageContext";
-import HomePage from "./Components/Pages/HomPage";
+import HomePage from "./Components/Pages/HomePage";
+import AboutMePage from "./Components/Pages/AboutMePage";
 
 const App = (): JSX.Element => {
   return (
@@ -24,17 +24,15 @@ const App = (): JSX.Element => {
 
               <Route path="/*" element={
                 <SinglePageContainer>
-                  <Navbar />
                   <Outlet />
                 </SinglePageContainer>
               }>
                 <Route index path="Inicio" element={<HomePage />} />
-                <Route path="SobreMi" element={<>About Me</>} />
+                <Route path="SobreMi" element={<AboutMePage />} />
                 <Route path="Resumen" element={<>Resume</>} />
                 <Route path="Portafolio" element={<>Portfolio</>} />
                 <Route path="Contacto" element={<>Contact</>} />
               </Route>
-
             </Routes>
           </ThemeContextProvider>
         </LanguageContextProvider>

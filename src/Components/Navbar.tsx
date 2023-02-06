@@ -25,14 +25,14 @@ const Navbar = (): JSX.Element => {
         },
         {
             key: 1,
-            text: 'acerca-de',
+            text: 'sobremi',
             route: '/SobreMi'
         },
-        {
-            key: 2,
-            text: 'resumen',
-            route: '/Resumen'
-        },
+        // {
+        //     key: 2,
+        //     text: 'resumen',
+        //     route: '/Resumen'
+        // },
         {
             key: 3,
             text: 'portafolio',
@@ -79,7 +79,7 @@ const Navbar = (): JSX.Element => {
     const mobileNavRef = useRef<any>();
 
     return (
-        <nav className="py-5 h-[10vh]">
+        <nav className="py-5 h-[10vh] bg-gray-100 dark:bg-gray-800">
             <div className="flex flex-wrap justify-between items-center">
                 {/* Nav logo */}
                 <a className="flex font-bold tracking-tighter text-lg cursor-pointer tablet:text-2xl" onClick={() => onNavItemClick('/Inicio')}>

@@ -43,9 +43,9 @@ const HomePage: React.FunctionComponent<IHomePageProps> = (props): JSX.Element =
 
     return (
         <div className='h-[90vh] pt-[10%] flex items-center tablet:h-[90vh] tablet:pt-0'>
-            <div className='text-center tablet:text-right flex justify-between items-center flex-col-reverse tablet:flex-row tablet:justify-around tablet:items-stretch'>
+            <div className='desktop:w-[90%] text-center tablet:text-right flex justify-between items-center flex-col-reverse tablet:flex-row tablet:items-stretch'>
                 <div className="flex flex-col justify-around mt-4 h-[40vh] w-[100%]  laptop:h-[40vh] tablet:h-[30vh] desktopW:my-28 tablet:my-14 laptop:w-[50%] tablet:w-[45%]">
-                    <div className="w-[100%] ml-auto desktopW:w-[65%] desktop:w-[90%]">
+                    <div className="w-[100%] ml-auto desktopW:w-[70%] desktop:w-[90%]">
                         <span>{t('bienvenida')}</span>
                     </div>
                     <div className="flex flex-col">
@@ -67,7 +67,7 @@ const HomePage: React.FunctionComponent<IHomePageProps> = (props): JSX.Element =
                         }
                     </div>
                 </div>
-                <div className='w-[85%] laptop:w-[40%] tablet:w-[45%] tablet:my-auto'>
+                <div className='w-[85%] laptop:w-[45%] tablet:w-[50%] tablet:my-auto'>
                     <img src={Me2x2} className='h-auto rounded-full' />
                 </div>
             </div>

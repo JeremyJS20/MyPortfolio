@@ -16,7 +16,7 @@ const LanguageContextProvider = ({ children }: PropsWithChildren): JSX.Element =
 
     const [locale, setLocale] = useState<any>();
 
-    i18n.on('languageChanged', useCallback((lng) => {        
+    i18n.on('languageChanged', useCallback((lng) => { 
         if(locale !== lng)  setLocale(lng);
     }, [locale]));
 
