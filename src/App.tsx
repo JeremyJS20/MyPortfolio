@@ -7,6 +7,8 @@ import ThemeContextProvider from "./Context/ThemeContext";
 import LanguageContextProvider from "./Context/LanguageContext";
 import HomePage from "./Components/Pages/HomePage";
 import AboutMePage from "./Components/Pages/AboutMePage";
+import PortfolioPage from "./Components/Pages/PortfolioPage";
+import ContactPage from "./Components/Pages/ContactPage";
 
 const App = (): JSX.Element => {
   return (
@@ -29,9 +31,8 @@ const App = (): JSX.Element => {
               }>
                 <Route index path="Inicio" element={<HomePage />} />
                 <Route path="SobreMi" element={<AboutMePage />} />
-                <Route path="Resumen" element={<>Resume</>} />
-                <Route path="Portafolio" element={<>Portfolio</>} />
-                <Route path="Contacto" element={<>Contact</>} />
+                <Route path="Portafolio" element={<PortfolioPage />} />
+                <Route path="Contacto" element={<ContactPage/>} />
               </Route>
             </Routes>
           </ThemeContextProvider>

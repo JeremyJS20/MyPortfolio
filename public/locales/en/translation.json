@@ -26,5 +26,16 @@
     "edutitle1": "Software Development Higher Technician",
     "edulugar1": "Las Americas Institute of Technology",
     "edudesc1": "Graduated with 'Good' honorific mention.",
-    "presentacion": "I'm an enthusiastic Fullstack Software Developer based in Dominican Republic, with barely 1 year of experience developing web apps."
+    "presentacion": "I'm an enthusiastic Fullstack Software Developer based in Dominican Republic, with barely 1 year of experience developing web apps.",
+    "ponte-en-contacto": "Get in touch",
+    "formulario-de-contacto": "Contact form",
+    "tu-correo": "Your email",
+    "asunto": "Subject",
+    "ejemplo-asunto": "Example: New project",
+    "mensaje": "Message",
+    "escribe-mensaje": "Write your message here...",
+    "enviar": "Send message",
+    "formulario-enviado-msg": "Message sended successfully",
+    "formulario-error-msg": "Something went wrong, try it again.",
+    "proyectos-personales": "Personal projects"
 }

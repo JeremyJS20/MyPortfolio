@@ -22,5 +22,8 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "paths": {
+    "@assets/img": ["src/Assets/Img"],
+  }
 }

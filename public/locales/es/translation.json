@@ -26,5 +26,16 @@
     "edutitle1": "Técnico Superior en Desarrollo de Software",
     "edulugar1": "Instituto Tecnológico de Las Américas",
     "edudesc1": "Graduado con mención honorífica 'Buena'",
-    "presentacion": "Soy un Desarrollador de Software Fullstack residente en República Dominicana, con apenas 1 año de experiencia desarrollando aplicaciones web."
+    "presentacion": "Soy un Desarrollador de Software Fullstack residente en República Dominicana, con apenas 1 año de experiencia desarrollando aplicaciones web.",
+    "ponte-en-contacto": "Ponte en contacto",
+    "formulario-de-contacto": "Formulario de contacto",
+    "tu-correo": "Tu correo",
+    "asunto": "Asunto",
+    "ejemplo-asunto": "Ejemplo: Nuevo proyecto",
+    "mensaje": "Mensaje",
+    "escribe-mensaje": "Escribe tu mensaje aquí...",
+    "enviar": "Enviar mensaje",
+    "formulario-enviado-msg": "Mensaje enviado exitosamente.",
+    "formulario-error-msg": "Algo salió mal, intente de nuevo.",
+    "proyectos-personales": "Proyectos personales"
 }

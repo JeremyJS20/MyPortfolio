@@ -1,6 +1,7 @@
 import { Timeline } from "flowbite-react/lib/esm/components/Timeline";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { AboutMeSVG } from "../../Assets/Img/ImagesComponentCollection";
 import { LanguageContext } from "../../Context/LanguageContext";
 
 interface IAboutMePageProps {
@@ -21,7 +22,7 @@ const LabolExperienceTimeline = ({ ...props }): JSX.Element => {
     ]
 
     return (
-        <div className="flex flex-col my-20 w-[100%]  ">
+        <div className="flex flex-col my-0 w-[100%]  ">
             <span className="font-bold text-2xl">{props.t('experiencia')}</span>
             <Timeline className="m-5">
                 {
@@ -66,7 +67,7 @@ const FormationTimeline = ({ ...props }): JSX.Element => {
     ]
 
     return (
-        <div className="flex flex-col my-10 w-[100%] ">
+        <div className="flex flex-col my-0 w-[100%] ">
             <span className="font-bold text-2xl">{props.t('educacion')}</span>
             <Timeline className="m-5">
                 {
@@ -133,8 +134,8 @@ const Skills = ({ ...props }): JSX.Element => {
     ]
 
     return (
-        <div className="flex items-center justify-between my-20 flex-col tablet:flex-row-reverse tablet:items-center">
-            <div className="flex flex-col w-[90%] tablet:w-[45%]">
+        <div className="flex items-center justify-between my-14 flex-col desktopW:my-20 tablet:flex-row-reverse tablet:items-center">
+            <div className="flex flex-col w-[90%] tablet:w-[45%] ">
                 <span className="font-bold text-2xl">{props.t('habilidades')}</span>
                 <span className="text-justify my-4">{props.t('habilidadesdesc')}</span>
             </div>
@@ -185,18 +186,20 @@ const AboutMe = ({ ...props }): JSX.Element => {
         },
     ];
 
-    return (<div className="flex items-center justify-between my-20 flex-col tablet:flex-row tablet:items-center">
-        <div className="flex flex-col w-[90%] tablet:w-[45%]">
-            <span className="font-bold text-2xl">{props.t('sobremi')}</span>
-            <span className="text-justify my-4">{props.t('presentacion')}</span>
+    return (
+        <div className="flex items-center justify-between my-14 shadow-xl rounded-lg p-8 dark:bg-gray-700 desktopW:my-20 flex-col tablet:flex-row tablet:items-center">
+            <div className="flex flex-col w-[90%] tablet:w-[45%]  ">
+                <span className="font-bold text-2xl">{props.t('sobremi')}</span>
+                <span className="text-justify my-4">{props.t('presentacion')}</span>
+            </div>
+            <div className="flex flex-col w-[90%] tablet:w-[45%]">
+                {personalDataItems.map(per => <div key={per.key} className="my-2 flex justify-between">
+                    <span className="font-bold">{props.t(per.label)}:</span>
+                    <span className="">{props.t(per.value)}</span>
+                </div>)}
+            </div>
         </div>
-        <div className="flex flex-col w-[90%] tablet:w-[45%]">
-            {personalDataItems.map(per => <div key={per.key} className="my-2 flex justify-between">
-                <span className="font-bold">{props.t(per.label)}:</span>
-                <span className="">{props.t(per.value)}</span>
-            </div>)}
-        </div>
-    </div>);
+    );
 }
 
 const AboutMePage: React.FunctionComponent<IAboutMePageProps> = (props): JSX.Element => {
@@ -206,10 +209,16 @@ const AboutMePage: React.FunctionComponent<IAboutMePageProps> = (props): JSX.Ele
 
     return (
         <div className='h-[100%] pt-[10%] flex flex-col tablet:pt-0'>
+            <div className="flex flex-col-reverse items-center justify-around my-[130px] desktopW:my-[250px] tablet:my-[200px] tablet:flex-row">
+                <span className="font-bold text-2xl mt-10 desktopW:text-3xl tablet:mt-0">{t('sobremi')}</span>
+                <AboutMeSVG />
+            </div>
             <AboutMe t={t} />
             <Skills t={t} />
-            <LabolExperienceTimeline t={t} locale={locale} />
-            <FormationTimeline t={t} locale={locale} />
+            <div className="flex flex-col shadow-xl rounded-lg my-14 p-8 dark:bg-gray-700 desktopW:flex-row">
+                <LabolExperienceTimeline t={t} locale={locale} />
+                <FormationTimeline t={t} locale={locale} />
+            </div>
         </div>
 
     );

@@ -105,7 +105,7 @@ const Navbar = (): JSX.Element => {
                         {/* Theme buttom switcher*/}
                         <Button
                             size={'xs'}
-                            className={'!bg-gray-100 border-0 !text-gray-600 hover:!bg-gray-200 focus:!ring-5 focus:!ring-transparent dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 '}
+                            className={'!bg-gray-100 border-0 !text-gray-600 hover:!bg-gray-200 focus:!ring-5 focus:!ring-transparent dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 hidden tablet:inline-block'}
                             onClick={onThemeBtnClick}
                         >
                             <i className={`fa-regular ${themeVerifier(theme) == 'dark' ? 'fa-moon' : 'fa-sun'} text-base`}></i>
