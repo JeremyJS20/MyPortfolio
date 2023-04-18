@@ -25,7 +25,7 @@ function Card() {
                 {
                     pbKey: 'pbKey2',
                     text: 'Website',
-                    route: 'jsreactchatapp.netlify.app',
+                    route: 'react-chat-app-6vjz.onrender.com',
                     icon: 'fa-solid fa-globe'
                 }
             ],
@@ -44,7 +44,7 @@ function Card() {
                 {
                     pbKey: 'pbKey2',
                     text: 'Website',
-                    route: 'aliensvsballoons.netlify.app',
+                    route: 'aliens-vs-balloons.onrender.com',
                     icon: 'fa-solid fa-globe'
                 }
             ],
