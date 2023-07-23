@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { changeLanguage, LanguageContext } from "../Context/LanguageContext";
 import { ThemeContext, themeVerifier } from "../Context/ThemeContext";
+import { Link } from "react-scroll";
 
 const Navbar = (): JSX.Element => {
 
@@ -13,35 +14,32 @@ const Navbar = (): JSX.Element => {
 
     const { t } = useTranslation();
 
-    const navigate = useNavigate();
-
-    const location = useLocation();
 
     const navItems = [
         {
             key: 0,
             text: 'inicio',
-            route: '/Inicio'
+            route: 'home'
         },
         {
             key: 1,
             text: 'sobremi',
-            route: '/SobreMi'
+            route: 'aboutme'
         },
-        // {
-        //     key: 2,
-        //     text: 'resumen',
-        //     route: '/Resumen'
-        // },
+        {
+            key: 2,
+            text: 'habilidades',
+            route: 'skills'
+        },
         {
             key: 3,
             text: 'portafolio',
-            route: '/Portafolio'
+            route: 'portfolio'
         },
         {
             key: 4,
             text: 'contacto',
-            route: '/Contacto'
+            route: 'contact'
         }
     ];
 
@@ -60,8 +58,6 @@ const Navbar = (): JSX.Element => {
 
     const onLocaleItemClick = useCallback((loc: string) => changeLanguage(locale, loc), [locale]);
 
-    const onNavItemClick = useCallback((route: string) => navigate(route), []);
-
     const onThemeBtnClick = useCallback(() => {
         localStorage.setItem('theme', themeVerifier(theme));
         setTheme(themeVerifier(theme));
@@ -71,32 +67,54 @@ const Navbar = (): JSX.Element => {
         (mobileNavRef.current as HTMLDivElement).classList.toggle('!w-0');
     }, []);
 
-    const onMobileNavItemClick = useCallback((route: string) => {        
+    const onMobileNavItemClick = useCallback(() => {
         (mobileNavRef.current as HTMLDivElement).classList.add('!w-0');
-        navigate(route);
     }, []);
 
     const mobileNavRef = useRef<any>();
 
+    // useEffect(() => {
+    //     console.log(scrollDirection)
+    //     console.log(isScrolling);
+        
+    // }, [scrollDirection, isScrolling])
+
     return (
-        <nav className="py-5 h-[10vh] bg-gray-100 dark:bg-gray-800">
-            <div className="flex flex-wrap justify-between items-center">
+        <nav className="py-5 h-[10vh] z-50 bg-gray-100/90 dark:bg-gray-800/90 backdrop-blur-sm sticky top-0 ">
+            <div className="flex flex-wrap justify-between items-center w-[95vw] mx-auto desktop:w-[70vw] laptop:w-[85vw] laptop:container">
                 {/* Nav logo */}
-                <a className="flex font-bold tracking-tighter text-lg cursor-pointer tablet:text-2xl" onClick={() => onNavItemClick('/Inicio')}>
-                    <span>Jeremy <strong className="text-green-600">Solano</strong></span>
-                </a>
+                {/* <a className="flex font-bold tracking-tighter text-lg cursor-pointer tablet:text-2xl" onClick={() => onNavItemClick('/Inicio')}>
+                </a> */}
+                <Link to={'home'}
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={700}
+                    className="flex font-bold tracking-tighter text-lg cursor-pointer tablet:text-2xl"
+                    onAnimationEnd={(e) => {
+                        console.log(e);
+                        
+                    }}
+                >
+                    <span>Jeremy <strong className="text-green-700">Solano</strong></span>
+                </Link>
 
                 {/* Nav items */}
                 <div className="hidden laptop:flex ">
                     {
                         navItems.map(item => (
-                            <a key={item.key} className={`mx-2 text-base2 text-gray-800 cursor-pointer px-2 py-3 hover:border-b-2 hover: border-b-green-600 dark:text-gray-100
-                            ${location.pathname.includes(item.route) ? '!text-green-600 border-b-2 border-b-green-600 font-bold' : ''}
-                            `}
-                                onClick={() => onNavItemClick(item.route)}
+                            <Link
+                                to={item.route}
+                                key={item.key}
+                                className={`mx-2 text-base font-bold tracking-wide cursor-pointer px-2 py-3 hover:text-green-700`}
+                                spy={true}
+                                smooth={true}
+                                offset={item.route == "home" ? -100 : 0}
+                                duration={700}
+                                activeClass="text-green-700 "
                             >
                                 {t(item.text)}
-                            </a>
+                            </Link>
                         ))
                     }
                 </div>
@@ -105,15 +123,15 @@ const Navbar = (): JSX.Element => {
                         {/* Theme buttom switcher*/}
                         <Button
                             size={'xs'}
-                            className={'!bg-gray-100 border-0 !text-gray-600 hover:!bg-gray-200 focus:!ring-5 focus:!ring-transparent dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 hidden tablet:inline-block'}
+                            className={'!bg-gray-100 border-0 !text-gray-900 hover:!bg-gray-200 focus:!ring-5 focus:!ring-transparent dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 hidden tablet:inline-block'}
                             onClick={onThemeBtnClick}
                         >
-                            <i className={`fa-regular ${themeVerifier(theme) == 'dark' ? 'fa-moon' : 'fa-sun'} text-base`}></i>
+                            <i className={`fa-regular ${themeVerifier(theme) == 'dark' ? 'fa-moon' : 'fa-sun'} text-lg`}></i>
                         </Button>
 
                         {/* Language dropdown selector*/}
                         <Dropdown arrowIcon={false} placement="bottom-end" className="w-[75px] bg-gray-100" inline={true} label={
-                            <div className="tablet:text-lg bg-gray-100 text-gray-600 px-[9px] py-[6px] rounded-lg hover:!bg-gray-200 dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 ">
+                            <div className="tablet:text-lg bg-gray-100 font-bold text-gray-900 px-[9px] py-[6px] rounded-lg hover:!bg-gray-200 dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 ">
                                 {locale?.toUpperCase()}
                             </div>}>
                             {localesDropdownItems.map(loc => (
@@ -136,17 +154,23 @@ const Navbar = (): JSX.Element => {
                     </Button>
 
                     {/* Nav mobile */}
-                    <div ref={mobileNavRef} className="!w-0 absolute transition-width ease-in-out duration-500 shadow-xl border-l-1 bg-white text-gray-100 top-[9vh] right-0 z-[5] py-3 h-[90vh] mobile:w-[65vw] laptop:w-[30vw] laptop:hidden tablet:w-[40vw] mobile:top-[10vh] mobile:h-[90vh] dark:bg-gray-700 ">
+                    <div ref={mobileNavRef} className="!w-0 absolute transition-width ease-in-out duration-500 shadow-xl border-l-1 bg-white text-gray-100 top-[9vh] right-0 z-[5] py-3 mobile:w-[65vw] laptop:w-[30vw] laptop:hidden tablet:w-[40vw] mobile:top-[10vh]  dark:bg-gray-700 ">
                         <div className="flex flex-col h-full overflow-y-auto overflow-x-hidden">
                             {
                                 navItems.map(item => (
-                                    <a key={item.key} className={`mx-2 text-base2 text-gray-800 cursor-pointer px-2 py-3 hover:border-l-2 hover: border-l-green-600 dark:text-gray-100
-                            ${location.pathname.includes(item.route) ? '!text-green-600 border-l-2 border-l-green-600 font-bold' : ''}
-                            `}
-                                        onClick={() => onMobileNavItemClick(item.route)}
-                                    >
-                                        {t(item.text)}
-                                    </a>
+                                    <Link
+                                    to={item.route}
+                                    key={item.key}
+                                    className={`mx-2 text-sm text-gray-800 font-bold tracking-wide cursor-pointer px-2 py-3 tablet:text-base dark:text-gray-100 hover:text-green-700`}
+                                    spy={true}
+                                    smooth={true}
+                                    offset={item.route == "home" ? -100 : 0}
+                                    duration={700}
+                                    activeClass="!text-green-700 "
+                                    onClick={() => onMobileNavItemClick()}
+                                >
+                                    {t(item.text)}
+                                </Link>
                                 ))
                             }
                         </div>

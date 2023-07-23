@@ -16,7 +16,7 @@
     "dominicano": "Dominicano",
     "repdominicana": "Rep. Dominicana",
     "edadtext": "21 años",
-    "bienvenida": "!Hola a todos! Sean bienvenidos a mi página, me llamo",
+    "bienvenida": "Hola, soy",
     "ocupacion": "Desarrollador Fullstack",
     "experiencia": "Experiencia",
     "actualidad": "Actualidad",
@@ -28,6 +28,10 @@
     "edudesc1": "Graduado con mención honorífica 'Buena'",
     "presentacion": "Soy un Desarrollador de Software Fullstack residente en República Dominicana, con apenas 1 año de experiencia desarrollando aplicaciones web.",
     "ponte-en-contacto": "Ponte en contacto",
+    "ponte-en-contacto2": "Contactame",
+    "llamame": "Llamame",
+    "ubicacion": "Ubicación",
+
     "formulario-de-contacto": "Formulario de contacto",
     "tu-correo": "Tu correo",
     "asunto": "Asunto",
@@ -35,7 +39,14 @@
     "mensaje": "Mensaje",
     "escribe-mensaje": "Escribe tu mensaje aquí...",
     "enviar": "Enviar mensaje",
-    "formulario-enviado-msg": "Mensaje enviado exitosamente.",
+    "formulario-enviado-msg": "Correo enviado exitosamente.",
     "formulario-error-msg": "Algo salió mal, intente de nuevo.",
-    "proyectos-personales": "Proyectos personales"
+    "proyectos-personales": "Proyectos personales",
+    "mi-introduccion": "Mi presentación",
+    "descargar-cv": "Descargar CV",
+    "mi-nivel": "Mi nivel técnico",
+    "front-end": "Frontend",
+    "back-end": "Backend",
+    "mis-proyectos": "Mis proyectos recientes",
+    "proyectodesc": "App de mensajeria que permite enviar mensajes instatáneamente a cualquier persona."
 }

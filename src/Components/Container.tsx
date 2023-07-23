@@ -5,6 +5,13 @@ import { Outlet, useLocation, useParams } from "react-router-dom";
 import { LanguageContext } from "../Context/LanguageContext";
 import { ThemeContext, themeVerifier } from "../Context/ThemeContext";
 import Navbar from "./Navbar";
+import HomePage from "./Pages/HomePage";
+import AboutMePage from "./Pages/AboutMePage";
+import PortfolioPage from "./Pages/PortfolioPage";
+import ContactPage from "./Pages/ContactPage";
+import SkillsPage from "./Pages/SkillsPage";
+import EducationAndExperiencePage from "./Pages/EducationAndExperiencePage";
+import FooterPage from "./FooterPage";
 
 
 function ThemeFloatingBtn() {
@@ -40,12 +47,9 @@ const SinglePageContainer = ({ ...props }: PropsWithChildren) => {
 
   const params = useParams();
 
-  useEffect(() => {
-    document.body.classList.add('scrollbar');
-  }, []);
 
   useEffect(() => {
-    document.title = `${t(String(params[Object.keys(params)[0]]).toLocaleLowerCase())} - Jeremy Solano`;
+    document.title = `${t('portafolio')} - Jeremy Solano`;
   }, [locale, location]);
 
   useEffect(() => {
@@ -55,13 +59,24 @@ const SinglePageContainer = ({ ...props }: PropsWithChildren) => {
     document.body.classList.add(theme);
   }, [theme]);
 
+  useEffect(() => {
+    document.body.classList.add('scrollbar');
+  }, []);
+
+  const pages = ['Navbar', 'HomePage', 'AboutMePage']
+
   return (
-    <div className={`App`}>
-      <div className={`bg-gray-100 text-gray-800 font-RB tracking-tight dark:bg-gray-800 dark:text-gray-100`}>
-        <div className="w-[95vw] mx-auto desktop:w-[70vw] laptop:w-[85vw] laptop:container">
-          <Navbar />
-          <Outlet />
-        </div>
+    <div className={`App `}>
+      <div className={`bg-gray-100 text-gray-900 font-RB tracking-tight dark:text-gray-100 dark:bg-gray-800`}>
+
+        <Navbar />
+        <HomePage />
+        <AboutMePage />
+        <SkillsPage />
+        <EducationAndExperiencePage />
+        <PortfolioPage />
+        <ContactPage />
+        <FooterPage/>
         <ThemeFloatingBtn />
       </div>
     </div>
