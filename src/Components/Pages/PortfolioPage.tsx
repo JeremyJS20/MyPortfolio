@@ -149,7 +149,7 @@ const PortfolioPage: React.FunctionComponent<IPortfolioPageProps> = (props): JSX
         {
             key: 1,
             name: 'Aliens VS Balloons',
-            description: 'Juego web que consiste en destruir los balones que ascienden en la nave alienigena.',
+            description: 'proyectodesc2',
             img: ImagesCollection.AliensVSBalloons,
             buttons: [
                 {
@@ -203,7 +203,7 @@ const PortfolioPage: React.FunctionComponent<IPortfolioPageProps> = (props): JSX
                                     <div className="flex flex-wrap">
                                         {
                                             pi.tags.map(tag => (
-                                                <div key={tag.tagKey} className=" bg-gray-800 w-fit px-3 py-1 mx-1 text-gray-100 text-[9px] mb-2 desktopW:mb-0 laptop:text-xs rounded-xl">
+                                                <div key={tag.tagKey} className=" bg-gray-800/80 w-fit px-3 py-1 mx-1 text-gray-100 text-[9px] mb-2 desktopW:mb-0 laptop:text-xs rounded-xl">
                                                     {tag.text}
                                                 </div>
                                             ))
@@ -215,7 +215,7 @@ const PortfolioPage: React.FunctionComponent<IPortfolioPageProps> = (props): JSX
                                             <Button
                                                 key={btn.pbKey}
                                                 size={'xs'}
-                                                className={' backdrop-blur-sm mr-1 !rounded-full scale-100 z-20 !p-0 !bg-gray-800 border-0 !text-gray-100 focus:!ring-5 focus:!ring-transparent'}
+                                                className={' backdrop-blur-sm mr-1 !rounded-full scale-100 z-20 !p-0 !bg-gray-800/80 border-0 !text-gray-100 focus:!ring-5 focus:!ring-transparent'}
                                                 onClick={() => onSiteBtnClick(btn.route)}
                                             >
                                                 <i className={`${btn.icon} text-base tablet:text-xl`}></i>

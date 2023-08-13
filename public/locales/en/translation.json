@@ -26,8 +26,8 @@
     "edutitle1": "Software Development Higher Technician",
     "edulugar1": "Las Americas Institute of Technology",
     "edudesc1": "Graduated with 'Good' honorific mention.",
-    "presentacion": "I'm an enthusiastic Fullstack Software Developer based in Dominican Republic, with barely 1 year of experience developing web apps.",
-    "presentacion2": " I'm a lover of Programming and Software development, barely beginning my journey in this awesome world of Software development. Always looking for learn the most I can about this world and improve my skills as a Software developer.",
+    "presentacion": "Enthusiastic and skilled Fullstack Software Developer, specialized in web apps and web RESTful APIs development",
+    "presentacion2": "I'm a lover of Programming and Software development, barely beginning my journey in this awesome world of Software development. Always looking for learn the most I can about this world and improve my skills as a Software developer.",
     "ponte-en-contacto": "Get in touch",
     "ponte-en-contacto2": "Contact me",
     "llamame": "Call me",
@@ -49,5 +49,8 @@
     "front-end": "Frontend",
     "back-end": "Backend",
     "mis-proyectos": "My recents projects",
-    "proyectodesc": "Messaging app that allows sending instant messages to anyone."
+    "proyectodesc": "Messaging app that allows sending instant messages to anyone.",
+    "proyectodesc2": "Web game in which you control an ufo and you're in charge to avoid the ascending ballons reach the space.",
+    "pais": "Dominican Republic",
+    "copyright": "Made by Jeremy"
 }

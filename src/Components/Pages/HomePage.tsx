@@ -60,7 +60,7 @@ const HomePage: React.FunctionComponent<IHomePageProps> = (props): JSX.Element =
                 </div>
                 <div className="flex flex-col-reverse w-[100%] items-center laptop:w-[80%] laptop:flex-row">
                     <div className="flex flex-col items-center w-[80%] mr-0 desktopW:mr-10 laptop:mr-5 laptop:items-start">
-                        <span className="text-2xl font-bold mb-1 desktopW:mb-2 desktop:text-5xl laptop:text-4xl tablet:text-3xl">{t('bienvenida')} <strong className="text-green-700">Jeremy</strong></span>
+                        <span className="text-2xl font-bold mb-1 desktopW:mb-2 desktop:text-5xl laptop:text-4xl tablet:text-3xl">{t('bienvenida')} <strong className="text-green-700"> Jeremy</strong></span>
                         <span className="text-base text-gray-500 dark:text-gray-400 font-bold mb-7 laptop:text-2xl tablet:text-xl">{t('ocupacion')}</span>
                         <span className=" text-sm mb-7 text-center text-gray-400 font-bold dark:text-gray-500 tablet:text-base laptop:text-start">{t('presentacion')}</span>
 

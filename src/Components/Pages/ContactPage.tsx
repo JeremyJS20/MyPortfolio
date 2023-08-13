@@ -85,7 +85,7 @@ const ContactPage: React.FunctionComponent<IContactPageProps> = (props) => {
         {
             key: 'infoData3',
             text: 'ubicacion',
-            value: 'Dominican Republic - Bajos de Haina, San Cristobal',
+            value: ` - Bajos de Haina, San Cristobal`,
             icon: 'fa-solid fa-location-dot'
         },
     ]);
@@ -106,7 +106,7 @@ const ContactPage: React.FunctionComponent<IContactPageProps> = (props) => {
                                     <i className={`${i.icon} text-3xl laptop:text-4xl text-green-700 mr-5`} />
                                     <div className='flex flex-col'>
                                         <span className='text-xl desktop:text-2xl mb-1'>{t(i.text)}</span>
-                                        <span className='text-xs text-gray-400 dark:text-gray-500 desktop:text-base laptop:text-sm'>{i.value}</span>
+                                        <span className='text-xs text-gray-400 dark:text-gray-500 desktop:text-base laptop:text-sm'>{`${i.text == 'ubicacion'? t('pais'):''}${i.value}`}</span>
                                     </div>
                                 </div>
                             ))
