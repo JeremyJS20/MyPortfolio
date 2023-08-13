@@ -30,15 +30,12 @@ const AboutMePage: React.FunctionComponent<IAboutMePageProps> = (props): JSX.Ele
                             size={'xl'}
                             className=" !bg-green-700 text-gray-100 !py-3 !rounded-xl !font-bold hover:!bg-green-600 focus:!ring-transparent w-[70%] desktopW:w-[45%] laptop:w-[55%] tablet:w-[40%]"
                             onClick={() => {
-                                fetch(`${process.env.REACT_APP_URL}doc/${locale} CV - Jerermy Solano.pdf`).then(res => res.blob()).then((b: any) => {
-                                    const blobUrl = window.URL.createObjectURL(new Blob([b]));
                                     const link = document.createElement('a');
-                                    link.href = blobUrl;
-                                    link.setAttribute('download', `${locale} CV - Jerermy Solano.pdf`)
+                                    link.href = require(`../../Assets/Doc/${locale} CV - Jerermy Solano.pdf`);
+                                    link.download = `${locale} CV - Jerermy Solano.pdf`;
                                     document.body.appendChild(link);
                                     link.click();
                                     link.remove();
-                                });
                             }}
                         >
                             <i className="fa-solid fa-download text-xl mr-2"></i>{t('descargar-cv')}
