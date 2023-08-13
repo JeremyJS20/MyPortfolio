@@ -89,7 +89,7 @@ const SkillsPage: React.FunctionComponent<ISkillsPageProps> = (props): JSX.Eleme
                         <Button
                             size={'xl'}
                             key={i.key}
-                            className={`!bg-transparent !text-gray-800 dark:!text-gray-100 !rounded-xl !font-bold hover:!bg-transparent focus:!ring-transparent ${i.selected ? '!text-green-700 dark:!text-green-700' : ''}`}
+                            className={`!bg-transparent !rounded-xl !font-bold hover:!bg-transparent focus:!ring-transparent ${i.selected ? '!text-green-700 dark:!text-green-700' : ' !text-gray-800 dark:!text-gray-100 '}`}
                             onClick={() => {
                                 const temp = skills.slice();
                                 temp.forEach(skill => {

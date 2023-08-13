@@ -183,7 +183,7 @@ const PortfolioPage: React.FunctionComponent<IPortfolioPageProps> = (props): JSX
     ];
 
     return (
-        <section className=" dark:bg-gray-700" id="portfolio">
+        <section className="bg-white dark:bg-gray-700" id="portfolio">
             <div className="flex flex-col items-center py-36 desktopW:py-[250px] laptop:py-52 tablet:py-48 w-[95vw] mx-auto desktop:w-[70vw] laptop:w-[85vw] laptop:container">
                 <div className="flex flex-col items-center mb-12">
                     <span className="text-2xl font-bold mb-1 desktop:text-4xl tablet:text-3xl">{t('portafolio')}</span>

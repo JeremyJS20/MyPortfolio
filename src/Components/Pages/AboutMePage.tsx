@@ -14,7 +14,7 @@ const AboutMePage: React.FunctionComponent<IAboutMePageProps> = (props): JSX.Ele
     const { locale } = useContext(LanguageContext);
 
     return (
-        <section className=" dark:bg-gray-700" id="aboutme">
+        <section className="bg-white dark:bg-gray-700" id="aboutme">
             <div className="flex flex-col items-center py-36 desktopW:py-72 laptop:py-52 tablet:py-48 w-[95vw] mx-auto desktop:w-[70vw] laptop:w-[85vw] laptop:container">
                 <div className="flex flex-col items-center mb-12">
                     <span className="text-2xl font-bold mb-1 desktop:text-4xl tablet:text-3xl">{t('sobremi')}</span>
