@@ -1,8 +1,7 @@
 import { Button } from "flowbite-react";
 import { Dropdown } from "flowbite-react/lib/esm/components/Dropdown";
-import { useCallback, useContext, useEffect, useRef } from "react";
+import { useCallback, useContext, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
 import { changeLanguage, LanguageContext } from "../Context/LanguageContext";
 import { ThemeContext, themeVerifier } from "../Context/ThemeContext";
 import { Link } from "react-scroll";
@@ -61,7 +60,7 @@ const Navbar = (): JSX.Element => {
     const onThemeBtnClick = useCallback(() => {
         localStorage.setItem('theme', themeVerifier(theme));
         setTheme(themeVerifier(theme));
-    }, [theme]);
+    }, [theme, setTheme]);
 
     const onMobileNavBtnClicked = useCallback(() => {
         (mobileNavRef.current as HTMLDivElement).classList.toggle('!w-0');
@@ -73,30 +72,20 @@ const Navbar = (): JSX.Element => {
 
     const mobileNavRef = useRef<any>();
 
-    // useEffect(() => {
-    //     console.log(scrollDirection)
-    //     console.log(isScrolling);
-        
-    // }, [scrollDirection, isScrolling])
-
     return (
-        <nav className="py-5 h-[10vh] z-50 bg-gray-100/90 dark:bg-gray-800/90 backdrop-blur-sm sticky top-0 ">
+        <nav className="py-4 z-50 bg-gray-100/90 dark:bg-gray-800/90 backdrop-blur-sm sticky top-0 ">
             <div className="flex flex-wrap justify-between items-center w-[95vw] mx-auto desktop:w-[70vw] laptop:w-[85vw] laptop:container">
                 {/* Nav logo */}
-                {/* <a className="flex font-bold tracking-tighter text-lg cursor-pointer tablet:text-2xl" onClick={() => onNavItemClick('/Inicio')}>
+                {/* <a className="flex  tracking-tighter text-lg cursor-pointer tablet:text-2xl" onClick={() => onNavItemClick('/Inicio')}>
                 </a> */}
                 <Link to={'home'}
                     spy={true}
                     smooth={true}
                     offset={-100}
                     duration={700}
-                    className="flex font-bold tracking-tighter text-lg cursor-pointer tablet:text-2xl"
-                    onAnimationEnd={(e) => {
-                        console.log(e);
-                        
-                    }}
+                    className="flex  tracking-tighter text-lg cursor-pointer tablet:text-xl"
                 >
-                    <span>Jeremy <strong className="text-green-700">Solano</strong></span>
+                    <span className="uppercase text-lg"> <strong className="text-green-700 text-xl">{'<'}</strong>Jeremy Solano<strong className="text-green-700 text-xl">{'/>'}</strong></span>
                 </Link>
 
                 {/* Nav items */}
@@ -106,10 +95,10 @@ const Navbar = (): JSX.Element => {
                             <Link
                                 to={item.route}
                                 key={item.key}
-                                className={`mx-2 text-base font-bold tracking-wide cursor-pointer px-2 py-3 hover:text-green-700`}
+                                className={`mx-2 text-base cursor-pointer px-2 py-3 hover:text-green-700`}
                                 spy={true}
                                 smooth={true}
-                                offset={item.route == "home" ? -100 : 0}
+                                offset={item.route === "home" ? -100 : 0}
                                 duration={700}
                                 activeClass="text-green-700 "
                             >
@@ -126,12 +115,12 @@ const Navbar = (): JSX.Element => {
                             className={'!bg-gray-100 border-0 !text-gray-900 hover:!bg-gray-200 focus:!ring-5 focus:!ring-transparent dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 hidden tablet:inline-block'}
                             onClick={onThemeBtnClick}
                         >
-                            <i className={`fa-regular ${themeVerifier(theme) == 'dark' ? 'fa-moon' : 'fa-sun'} text-lg`}></i>
+                            <i className={`fa-regular ${themeVerifier(theme) === 'dark' ? 'fa-moon' : 'fa-sun'} text-lg`}></i>
                         </Button>
 
                         {/* Language dropdown selector*/}
                         <Dropdown arrowIcon={false} placement="bottom-end" className="w-[75px] bg-gray-100" inline={true} label={
-                            <div className="tablet:text-lg bg-gray-100 font-bold text-gray-900 px-[9px] py-[6px] rounded-lg hover:!bg-gray-200 dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 ">
+                            <div className="tablet:text-lg bg-gray-100  text-gray-900 px-[9px] py-[6px] rounded-lg hover:!bg-gray-200 dark:!bg-transparent dark:!text-gray-300 dark:hover:!bg-gray-700 ">
                                 {locale?.toUpperCase()}
                             </div>}>
                             {localesDropdownItems.map(loc => (
@@ -161,10 +150,10 @@ const Navbar = (): JSX.Element => {
                                     <Link
                                     to={item.route}
                                     key={item.key}
-                                    className={`mx-2 text-sm text-gray-800 font-bold tracking-wide cursor-pointer px-2 py-3 tablet:text-base dark:text-gray-100 hover:text-green-700`}
+                                    className={`mx-2 text-sm text-gray-800  tracking-wide cursor-pointer px-2 py-3 tablet:text-base dark:text-gray-100 hover:text-green-700`}
                                     spy={true}
                                     smooth={true}
-                                    offset={item.route == "home" ? -100 : 0}
+                                    offset={item.route === "home" ? -100 : 0}
                                     duration={700}
                                     activeClass="!text-green-700 "
                                     onClick={() => onMobileNavItemClick()}

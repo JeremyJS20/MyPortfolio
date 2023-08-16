@@ -1,10 +1,6 @@
 import { Button } from "flowbite-react";
 import { useTranslation } from "react-i18next";
-import { onSiteBtnClick } from "../../Utils/CommonFunctions.utils";
-import { Link, animateScroll as scroll } from "react-scroll";
 import { useState } from "react";
-
-const Me2x2 = require('../../Assets/Img/Me2x2.jpg');
 
 interface ISkillsPageProps {
 }
@@ -81,19 +77,19 @@ const SkillsPage: React.FunctionComponent<ISkillsPageProps> = (props): JSX.Eleme
         <section className="" id="skills">
             <div className="flex flex-col items-center py-40 desktopW:py-72 laptop:py-52 tablet:py-48 w-[95vw] mx-auto desktop:w-[70vw] laptop:w-[85vw] laptop:container">
                 <div className="flex flex-col items-center mb-12">
-                    <span className="text-2xl font-bold mb-1 desktop:text-4xl tablet:text-3xl">{t('habilidades')}</span>
-                    <span className="text-xs text-gray-400 dark:text-gray-500 font-bold mb-5 laptop:text-base">{t('mi-nivel')}</span>
+                    <span className="text-2xl  mb-1 desktop:text-4xl tablet:text-3xl">{t('habilidades')}</span>
+                    <span className="text-xs text-gray-400 dark:text-gray-500  mb-5 laptop:text-base">{t('mi-nivel')}</span>
                 </div>
                 <div className="flex justify-between mb-10 w-[80%] laptop:w-[40%] tablet:w-[50%]">
                     {skills.map(i => (
                         <Button
                             size={'xl'}
                             key={i.key}
-                            className={`!bg-transparent !rounded-xl !font-bold hover:!bg-transparent focus:!ring-transparent ${i.selected ? '!text-green-700 dark:!text-green-700' : ' !text-gray-800 dark:!text-gray-100 '}`}
+                            className={`!bg-transparent !rounded-xl ! hover:!bg-transparent focus:!ring-transparent ${i.selected ? '!text-green-700 dark:!text-green-700' : ' !text-gray-800 dark:!text-gray-100 '}`}
                             onClick={() => {
                                 const temp = skills.slice();
                                 temp.forEach(skill => {
-                                    if (skill.key == i.key) skill.selected = true;
+                                    if (skill.key === i.key) skill.selected = true;
                                     else skill.selected = false;
                                 });
 
@@ -108,8 +104,8 @@ const SkillsPage: React.FunctionComponent<ISkillsPageProps> = (props): JSX.Eleme
                     {skills.find(skill => skill.selected)?.items.map((i: any) => (
                         <div className="my-3" key={i.key}>
                             <div className="flex justify-between mb-1">
-                                <span className="text-sm font-medium tablet:text-base">{i.label}</span>
-                                <span className="text-sm font-medium tablet:text-base">{i.progress}%</span>
+                                <span className="text-sm font-medium text-gray-500 tablet:text-base">{i.label}</span>
+                                <span className="text-sm font-medium text-gray-500 tablet:text-base">{i.progress}%</span>
                             </div>
                             <div className="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
                                 <div className="bg-green-600 h-2.5 rounded-full" style={{

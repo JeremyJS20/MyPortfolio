@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useCallback, useEffect, useState } from "react";
+import { createContext, PropsWithChildren, useEffect, useState } from "react";
 
 const defaultValue = {
     theme: '',
@@ -7,8 +7,8 @@ const defaultValue = {
 
 export const ThemeContext = createContext(defaultValue);
 
-export const themeVerifier = (theme:any) => {    
-    return theme === 'dark'? 'light':'dark'
+export const themeVerifier = (theme:any) => {  
+    return theme === 'dark'? 'light':'dark';
 }
 
 const ThemeContextProvider = ({ children }: PropsWithChildren): JSX.Element => {
@@ -16,14 +16,14 @@ const ThemeContextProvider = ({ children }: PropsWithChildren): JSX.Element => {
     const [theme, setTheme] = useState<'dark'|'light'|undefined>(undefined);
 
     useEffect(() => {
-        if(localStorage.getItem('theme') != null){            
-            setTheme(themeVerifier(localStorage.getItem('theme')));
-            localStorage.setItem('theme', themeVerifier(localStorage.getItem('theme')));
+        if(localStorage.getItem('theme') != null){                   
+            setTheme(localStorage.getItem('theme') as 'dark'|'light');
         } else{
             if(window.matchMedia('(prefers-color-scheme: dark)').matches){
                 setTheme('dark');
                 localStorage.setItem('theme', 'dark');
             } else{
+                setTheme('light');
                 localStorage.setItem('theme', 'light');
             }
         }
