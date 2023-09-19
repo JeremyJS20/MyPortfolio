@@ -137,7 +137,7 @@ const PortfolioPage: React.FunctionComponent<IPortfolioPageProps> = (props): JSX
                                 <img src={pi.img} alt="alt" className=" z-0 rounded-[15px] w-full scale-100 group-hover:scale-105 transition duration-300" />
 
         
-                                <div className="absolute bottom-0 left-0  z-20 pt-20 desktopW:pt-44 laptop:pt-28 tablet:pt-36 px-7 w-full bg-gradient-to-t from-gray-800/90 h-[100%] rounded-b-[15px] transition-all scale-100 group-hover:scale-105 opacity-0 group-hover:opacity-100 duration-300" >
+                                <div className="absolute bottom-0 left-0  z-20 pt-28 desktopW:pt-52 laptop:pt-36 tablet:pt-48 px-7 w-full bg-gradient-to-t from-gray-800/90 h-[100%] rounded-b-[15px] transition-all scale-100 group-hover:scale-105 opacity-0 group-hover:opacity-100 duration-300" >
                                     <div className="text-xl text-gray-100 mb-2 desktop:text-2xl">{pi.name}</div>
                                     <div className="text-xs text-gray-300 mb-3 desktop:text-sm">{t(pi.description)}</div>
 
